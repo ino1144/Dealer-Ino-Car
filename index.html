@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dealer Mobil Ino Car</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 1em 2em;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #0c47a1;
+            padding: 0.5em;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .container {
+            padding: 2em;
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #beranda {
+            background-image: url('dealer.png');
+            /* Ganti sesuai nama file */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            border-radius: 8px;
+            position: relative;
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            box-sizing: border-box;
+        }
+        
+        #beranda::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+            border-radius: 8px;
+        }
+        
+        #beranda>* {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+        }
+        
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            padding: 1em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .car-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        
+        .chat-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 1em;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+        
+        .chat-box textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 1em;
+        }
+        
+        .chat-box button {
+            background-color: #1a73e8;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+        /* Responsif untuk layar kecil */
+        
+        @media (max-width: 600px) {
+            #beranda {
+                padding: 1.5em;
+                font-size: 0.95em;
+                margin: 1em;
+            }
+            #beranda h2 {
+                font-size: 1.3em;
+            }
+            #beranda p {
+                font-size: 0.95em;
+                line-height: 1.4em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dealer Mobil Ino Car</h1>
+        <p>Temukan Mobil Impian Anda di Sini</p>
+    </header>
+
+    <nav>
+        <a onclick="showSection('beranda')">Beranda</a>
+        <a onclick="showSection('mobil')">Daftar Mobil</a>
+        <a onclick="showSection('kontak')">Kontak</a>
+    </nav>
+
+    <div id="beranda" class="container active">
+        <h2>Selamat Datang di Dealer Ino Car</h2>
+        <p>Kami menyediakan berbagai pilihan mobil terbaik untuk Anda. Temukan mobil impian Anda bersama kami!</p>
+        <p style="margin-bottom: 4em;">Untuk stok mobil yang tersedia silakan klik menu Daftar Mobil!</p>
+    </div>
+
+    <div id="mobil" class="container">
+        <h2>Daftar Mobil Tersedia</h2>
+        <div class="car-list">
+            <div class="car-card">
+                <img src="img/avanza.jpg" alt="Toyota Avanza">
+                <h3>Toyota Avanza</h3>
+                <p>Harga: Rp 250.000.000</p>
+                <p>MPV | 7 Penumpang | Manual/AT</p>
+            </div>
+            <div class="car-card">
+                <img src="Brio.png" alt="Honda Brio">
+                <h3>Honda Brio</h3>
+                <p>Harga: Rp 190.000.000</p>
+                <p>Hatchback | 5 Penumpang | Automatic</p>
+            </div>
+            <div class="car-card">
+                <img src="xpander.png" alt="Mitsubishi Xpander">
+                <h3>Mitsubishi Xpander</h3>
+                <p>Harga: Rp 290.000.000</p>
+                <p>MPV | 7 Penumpang | Automatic</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="kontak" class="container">
+        <h2>Hubungi Admin</h2>
+        <div class="chat-box">
+            <p>Kirim pesan langsung ke admin kami:</p>
+            <textarea placeholder="Ketik pesan Anda di sini..."></textarea>
+            <button>Kirim Pesan</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dealer Mobil Ino Car. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.container');
+
+            sections.forEach(section => {
+                if (section.id === id) {
+                    section.style.display = 'block';
+                    setTimeout(() => {
+                        section.classList.add('active');
+                    }, 10);
+                } else {
+                    section.classList.remove('active');
+                    setTimeout(() => {
+                        section.style.display = 'none';
+                    }, 500); // tunggu animasi keluar selesai
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
